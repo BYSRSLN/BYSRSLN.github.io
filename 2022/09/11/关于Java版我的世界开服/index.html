@@ -183,7 +183,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2022/08/22/hello-world/"},{"title":"关于Java版我的世界开服","path":"2022/09/11/关于Java版我的世界开服/"}]`)
+  const posts = JSON.parse(`[{"title":"关于Java版我的世界开服","path":"2022/09/11/关于Java版我的世界开服/"},{"title":"Hello World","path":"2022/08/22/hello-world/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -386,6 +386,14 @@ pre:active {
       <h1 id="关于我的世界Java版开服小叙"><a href="#关于我的世界Java版开服小叙" class="headerlink" title="关于我的世界Java版开服小叙"></a>关于我的世界Java版开服小叙</h1><h2 id="1-做一个服务器基本的准备工作"><a href="#1-做一个服务器基本的准备工作" class="headerlink" title="1.做一个服务器基本的准备工作"></a>1.做一个服务器基本的准备工作</h2><p>首先，你需要一个MC的服务器端（就是服务器的内核），有两种啊，一种是微软官方发布的服务端（Realms），官方出租的服务器缺点就是太贵，但是优点就是不用考虑兼容问题，是完全兼容的。如果你没有正版，也没钱去订阅官方服务端，那么第三方服务端就是最好的选择，这里讲几个较为常见的服务端，如：Vanilla,Spigot等，这两个服务端的兼容性都非常不错，个人最推荐后者，Spigot是可以安装服务器插件的，也就Plugins（这里再说一个Paper，它是在Spigot的基础上做了优化，但是1.16以上版本不推荐使用，因为原版中有一个特性叫TNT复制和地毯复制，这个特性在该服务端是用不了的）</p>
 <p>Spigot服务端下载地址：<a target="_blank" rel="noopener" href="https://sherkhol.lanzoux.com/b01ny9gxc">https://sherkhol.lanzoux.com/b01ny9gxc</a> 密码:bry9 （链接和谐问题已经修复）是白嫖的哔哩哔哩up SherkHol的资料，不过如果有梯也可以去官网<a target="_blank" rel="noopener" href="https://getbukkit.org/download/spigot%E4%B8%8B%E8%BD%BD">https://getbukkit.org/download/spigot下载</a></p>
 <p>注意：选择的服务器版本和最终要用来游戏的版本要保持一致，同时一定要确保自己计算机上有java，如果没有，你会发现你下载的服务端文件后缀是.jar根本打不开（这里附上Java的win脱机下载链接<a target="_blank" rel="noopener" href="https://sherkhol.lanzoux.com/javawin64%EF%BC%88Java%E6%9B%B4%E6%96%B0%E4%B9%8B%E5%90%8E%E4%BC%9A%E4%BB%8E%E5%AE%98%E7%BD%91%E4%BF%9D%E6%8C%81%E5%90%8C%E6%AD%A5%EF%BC%89%E5%90%8C%E6%A0%B7%E6%98%AF%E4%B8%8A%E9%9D%A2%E9%82%A3%E4%BD%8D%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%B5%84%E6%96%99%EF%BC%89">https://sherkhol.lanzoux.com/javawin64（Java更新之后会从官网保持同步）同样是上面那位大佬的资料）</a></p>
+<p>建议将所有服务器所需文件放到一个文件夹中！</p>
+<h2 id="2安装完成后对服务器进行初始化"><a href="#2安装完成后对服务器进行初始化" class="headerlink" title="2安装完成后对服务器进行初始化"></a>2安装完成后对服务器进行初始化</h2><p>这里提供两种方式</p>
+<p>1直接点击你下载的服务端文件，如我下载的是1.16.2版本，文件名为spigot-1.16.2后缀是.jar，那么你找到spigot-（你下载的版本）.jar的文件就可以了，但是极其不推荐这种方法，因为这样后续的操作十分麻烦，而且也对新手不友好（我就出错了）要是想用方法一，建议移步百度</p>
+<p>2创建一个启动器，首先在你下载spigot的文件夹里新建一个文本文档，编辑如下字符</p>
+<p>java -Xms1G -Xmx1G -jar spigot-（你的服务端文件名称）.jar</p>
+<p>先来解释一下这行代码，首先Xms1G中1G指服务器最大内存为1G，后面的1G则是最小内存，这里的内存分配完全取决于你当服务器的机器的内存，一般来说4G比较适合朋友间一起游玩，往下就会非常卡顿。服务端文件名称可以随意更改，但是后面需要输入服务端名称的地方必须和文件名字保持一致，如果你需要更改内存直接修改数字后保存即可，输入玩完上面这行指令就另存为start.bat注意这里的bat是文件的拓展名，或者如果你新建的文本文档是.txt格式，你直接把.txt改为.bat就好.如果你看不见扩展名，需要在文件夹的查看中勾选（文件扩展名）选项（做完会发现图标变成了两个小齿轮，那就说明成功了）</p>
+<p>好的，当你把上面步骤完成后，双击运行start.bat,你会看到一个终端窗口出现，会显示三行英文，最后一行为”Server will start in 20 seconds”那么就说明你成功啦！接下来等，窗口会自己消失，这时查看你的文件夹，会多出来一些东西，那就成功了，接下来，你需要找到一个名为eula.txt的文件，打开它，可以看见”eula&#x3D;false”此时将这里的false改为true之后保存，就好了，这其实就是你同意了这个协议，如果不同意是没办法进入服务器的！如果此时你想更改内存，直接右键start文件进行编辑之后保存就好！</p>
+<h2 id="3启动你的服务器吧！"><a href="#3启动你的服务器吧！" class="headerlink" title="3启动你的服务器吧！"></a>3启动你的服务器吧！</h2><p>ok，你到这就已经成功了百分之八十了，现在我们将目光放在<strong>server.properties</strong>这个文件上，首先来了解一下它的意思，这个文件就是服务器的设置信息，也可以将它理解为服务器版的game rule指令</p>
 
     </article>
     
@@ -407,7 +415,7 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CJava%E7%89%88%E5%BC%80%E6%9C%8D%E5%B0%8F%E5%8F%99"><span class="toc-number">1.</span> <span class="toc-text">关于我的世界Java版开服小叙</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%81%9A%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">1.做一个服务器基本的准备工作</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8CJava%E7%89%88%E5%BC%80%E6%9C%8D%E5%B0%8F%E5%8F%99"><span class="toc-number">1.</span> <span class="toc-text">关于我的世界Java版开服小叙</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%81%9A%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">1.做一个服务器基本的准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E5%90%8E%E5%AF%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">2安装完成后对服务器进行初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E5%90%AF%E5%8A%A8%E4%BD%A0%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%A7%EF%BC%81"><span class="toc-number">1.3.</span> <span class="toc-text">3启动你的服务器吧！</span></a></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
